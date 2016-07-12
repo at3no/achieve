@@ -1,0 +1,11 @@
+<p><%= notice %></p>
+
+<h1>お問い合わせ一覧</h1>
+
+<% @contacts.each do |contact| %>
+    <p>お名前：<%= contact.name %></p>
+    <p>Email：<%= contact.email %></p>
+    <p>内容：<%= contact.content %></p>
+<% end %>
+
+<%= link_to "お問い合わせ", new_contact_path %>
