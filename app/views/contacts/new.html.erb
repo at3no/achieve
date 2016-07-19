@@ -15,16 +15,16 @@
     </div>
   <% end %>
   <div class="row">
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.label :お名前 %>
+  <%= f.text_field :name, class: 'form-control', placeholder: "お名前" %>
   <br>
   <br>
-  <%= f.label :email %>
-  <%= f.text_field :email, class: 'form-control' %>
+  <%= f.label :メールアドレス %>
+  <%= f.text_field :email, class: 'form-control', placeholder: "メールアドレス" %>
   <br>
   <br>
-  <%= f.label :content %>
-  <%= f.text_area :content, class: 'form-control' %>
+  <%= f.label :内容 %>
+  <%= f.text_area :content, class: 'form-control', placeholder: "内容" %>
   <br>
   <br>
   <%= f.submit '確認', class: 'btn btn-primary btn-block' %>
