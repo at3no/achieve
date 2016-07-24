@@ -11,10 +11,11 @@
   <%= f.submit "登録する", class: 'btn btn-primary btn-block' %>
 <% end %>
 
-<%= form_for(@blog, url: new_blog_path, method: 'get') do |f| %>
+<%= form_for(@blog, url: new_blog_path) do |f| %>
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
   <%= f.submit "もどる", name: 'back', class: 'btn btn-default btn-block' %>
 <% end %>
+
 </div>
 </div>

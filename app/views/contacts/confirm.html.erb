@@ -14,7 +14,7 @@
   <%= f.submit "登録する", class: 'btn btn-primary btn-block' %>
 <% end %>
 
-<%= form_for(@contact, url: new_contact_path, method: 'get') do |f| %>
+<%= form_for(@contact, url: new_contact_path) do |f| %>
   <%= f.hidden_field :name %>
   <%= f.hidden_field :email %>
   <%= f.hidden_field :content %>

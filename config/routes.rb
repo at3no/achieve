@@ -2,17 +2,22 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :blogs, only: [:index, :create, :new, :edit, :update, :destroy] do
     collection do
       post :confirm
+      post :new
     end
   end
+  
+  match "blogs/new", :via => :post
   
   resources :contacts, only: [:new, :create] do
     collection do
       post :confirm
     end
   end
+  
+  match "contacts/new", :via => :post
   
   root 'top#index'
 
