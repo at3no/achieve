@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :blogs, only: [:index, :create, :new, :edit, :update, :destroy] do
     collection do
       post :confirm
-      post :new
     end
   end
   
