@@ -1,7 +1,8 @@
 <div class="container">
 <div class="col-md-6 col-md-offsets-3 col-sm-10 col-sm-offset-1">
 <h2>ブログを編集する</h2>
-
+<p>ユーザID：<%= @blog.user_id %>&nbsp;ユーザ名：<%= @blog.user.name %></p>
+<br>
 <%= render 'form' %>
 </div>
 </div>

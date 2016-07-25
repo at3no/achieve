@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
   
   def index
     @blogs = Blog.all
@@ -47,6 +47,9 @@ class BlogsController < ApplicationController
   def confirm
     @blog = Blog.new(blogs_params)
     render :new if @blog.invalid?
+  end
+  
+  def show
   end
   
   private
