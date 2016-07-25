@@ -11,6 +11,14 @@
     password = "password"
     User.create!(email: email,
     password: password,
-    password_confirmation: password,
+    password_confirmation: password
+    )
+end
+
+100.times do |n|
+    Blog.create!(
+    title: "title#{n+1}",
+    content: "content#{n+1}",
+    user_id: "#{n+1}"
     )
 end
