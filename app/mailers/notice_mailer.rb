@@ -1,5 +1,5 @@
 class NoticeMailer < ApplicationMailer
-
+  default :from => 'noreply@evening-fjord-65188.herokuapp.com'
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
