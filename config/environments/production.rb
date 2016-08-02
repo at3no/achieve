@@ -81,8 +81,8 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
-    user_name: ENV['app53548694@heroku.com'],
-    password: ENV['uisfyiqg8907'],
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
     domain: "heroku.com",
     address: "smtp.sendgrid.net",
     port: 587,
