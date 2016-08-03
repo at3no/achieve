@@ -14,8 +14,8 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.create(contacts_params)
     if @contact.save
-      redirect_to new_contact_path, notice: "お問い合わせありがとうございました！"
       NoticeMailer.sendmail_contact(@contact).deliver
+      redirect_to new_contact_path, notice: "お問い合わせありがとうございました！"
     else
       render action: 'new'
     end

@@ -79,6 +79,7 @@ Rails.application.configure do
   
   config.action_mailer.default_url_options = { host: 'evening-fjord-65188.herokuapp.com'}
   ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.rise_delivery_errors = true
   ActionMailer::Base.smtp_settings =
   {
     user_name: ENV['SENDGRID_USERNAME'],
