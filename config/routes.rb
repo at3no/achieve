@@ -1,27 +1,23 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
-  
+
   resources :blogs, only: [:index, :create, :new, :edit, :update, :destroy, :show] do
     collection do
       post :confirm
     end
   end
-  
+
   match "blogs/new", :via => :post
-  
+
   resources :contacts, only: [:new, :create] do
     collection do
       post :confirm
     end
   end
-  
+
   match "contacts/new", :via => :post
-  
+
   root 'top#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
