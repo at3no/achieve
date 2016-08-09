@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  #devise_for :users
   devise_for :users
 
   resources :blogs, only: [:index, :create, :new, :edit, :update, :destroy, :show] do
