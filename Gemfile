@@ -56,7 +56,3 @@ gem 'faker'
 group :development do
   gem 'letter_opener'
 end
-
-group :development do
-  gem 'letter_opener_web'
-end

@@ -7,12 +7,12 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '9f85ec14730e0097dfe4d61f8fc717ee8adeb2b752f1efd553eb6247ed5a9691a7905c2395a4029ae411e8ebbb5867f5f6d6c0e958938aac891c9c110123cde1'
-  
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'noreply@yourdomain'
+  config.mailer_sender = 'noreply@peaceful-cliffs-26939.herokuapp.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -222,7 +222,7 @@ Devise.setup do |config|
   # are using only default views.
   # config.scoped_views = false
   config.scoped_views = true
-  
+
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
   # config.default_scope = :user
