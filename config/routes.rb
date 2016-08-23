@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #devise_for :users
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
 
   resources :blogs, only: [:index, :create, :new, :edit, :update, :destroy, :show] do
     collection do

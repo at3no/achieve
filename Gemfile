@@ -62,3 +62,15 @@ end
 gem 'therubyracer', platforms: :ruby
 gem 'rails_admin'
 gem 'cancan'
+
+group :development do
+  gem 'dotenv-rails'
+end
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+#image uploader
+gem 'carrierwave'
+gem 'rmagick'
