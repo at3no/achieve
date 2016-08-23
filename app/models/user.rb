@@ -29,11 +29,11 @@ class User < ActiveRecord::Base
 
     unless user
       user = User.new(
-          name:     auth.info.nickname,
+          name: auth.info.nickname,
           image_url: auth.info.image,
           provider: auth.provider,
-          uid:      auth.uid,
-          email:    auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
+          uid: auth.uid,
+          email: auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
           password: Devise.friendly_token[0, 20],
       )
       user.skip_confirmation!
