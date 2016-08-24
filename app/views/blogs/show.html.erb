@@ -3,6 +3,7 @@
 <p><%= notice %></p>
 <h1>ブログ詳細</h1>
 <div class="row">
+  <p><%= image_tag(@blog.user.image_url) %></p>
   <h4><strong>タイトル：<%= @blog.title %></strong></h4>
   <p>本文：<%= @blog.content %></p>
   <p>ユーザID：<%= @blog.user_id %>&nbsp;ユーザ名：<%= @blog.user.name %></p>
