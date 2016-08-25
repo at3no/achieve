@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
       user.skip_confirmation!
       user.save(validate: false)
     end
-    user
+    return user
   end
 
   def self.find_for_twitter_oauth(auth, signed_in_resource = nil)
@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
       user.skip_confirmation!
       user.save
     end
-    user
+    return user
   end
 
   def self.create_unique_string
