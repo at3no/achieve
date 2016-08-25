@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
       user.skip_confirmation!
       user.save(validate: false)
     end
-    return user
+    user
   end
 
   def self.find_for_twitter_oauth(auth, signed_in_resource = nil)
@@ -35,14 +35,14 @@ class User < ActiveRecord::Base
           image_url: auth.info.image,
           provider: auth.provider,
           uid: auth.uid,
-          #email: auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
-          email: auth.info.email ||= "",
+          email: auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
+          #email: auth.info.email ||= "",
           password: Devise.friendly_token[0, 20],
       )
       user.skip_confirmation!
       user.save
     end
-    return user
+    user
   end
 
   def self.create_unique_string
