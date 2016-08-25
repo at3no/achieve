@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
           name: auth.extra.raw_info.name,
           provider: auth.provider,
           uid: auth.uid,
-          #email: auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
-          email: auth.info.email,
+          email: auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
           image_url: auth.info.image,
           password: Devise.friendly_token[0, 20]
       )
@@ -57,12 +56,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-      end
-    end
-  end
-  
 end
