@@ -35,8 +35,7 @@ class User < ActiveRecord::Base
           image_url: auth.info.image,
           provider: auth.provider,
           uid: auth.uid,
-          #email: auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
-          email: auth.info.email,
+          email: auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
           password: Devise.friendly_token[0, 20],
       )
       user.skip_confirmation!
