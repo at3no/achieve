@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #devise_for :users
   devise_for :users, controllers: {
@@ -7,7 +6,9 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
 }
 
-  resources :blogs, only: [:index, :create, :new, :edit, :update, :destroy, :show] do
+  resources :blogs do
+    resources :comments
+
     collection do
       post :confirm
     end

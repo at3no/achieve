@@ -6,6 +6,11 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
   end
 
+  def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments
+  end
+
   def new
     if params[:back]
      @blog = Blog.new(blogs_params)
@@ -30,9 +35,6 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
   end
 
-  def show
-  end
-
   def update
     @blog = Blog.find(params[:id])
 
@@ -52,9 +54,6 @@ class BlogsController < ApplicationController
   def confirm
     @blog = Blog.new(blogs_params)
     render :new if @blog.invalid?
-  end
-
-  def show
   end
 
   private
