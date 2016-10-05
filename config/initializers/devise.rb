@@ -279,4 +279,6 @@ Devise.setup do |config|
     config.omniauth :facebook, ENV["FACEBOOK_ID_DEVELOPMENT"], ENV["FACEBOOK_SECRET_DEVELOPMENT"], scope: 'email', display: 'popup', info_fields: 'name, email'
     config.omniauth :twitter, ENV["TWITTER_ID_DEVELOPMENT"], ENV["TWITTER_SECRET_DEVELOPMENT"], scope: 'email', display: 'popup', info_fields: 'name, email'
   end
+
+  config.secret_key = '2111108658c0357fc5700a21389018dfd21b19fcd8e6b9d9123f85fa19567de594bfbff84121e299a038c9710861e485e1dbae54017c697b068f1a3c7a7aecc3'
 end
