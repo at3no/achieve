@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #devise_for :users
   devise_for :users, controllers: {
@@ -23,6 +24,16 @@ Rails.application.routes.draw do
   end
 
   match "contacts/new", :via => :post
+
+  resources :users, only: [:index]
+
+  resources :relationships, only: [:show, :create, :destroy]
+
+  resources :users do
+    member do
+      get :followed, :followers
+    end
+  end
 
   root 'top#index'
 
