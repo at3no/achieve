@@ -1,0 +1,41 @@
+<div class="container">
+<div class="wrapper  col-md-8 col-md-offset-4 col-sm-10">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tasks</h1>
+
+<table style="width: 100%; border: 1px solid #e4e4e4;">
+  <thead>
+    <tr>
+      <th style="padding: 10px; border: 1px solid #e4e4e4; background: #f5f5f5;">User</th>
+      <th style="padding: 10px; border: 1px solid #e4e4e4; background: #f5f5f5;">Title</th>
+      <th style="padding: 10px; border: 1px solid #e4e4e4; background: #f5f5f5;">Content</th>
+      <th style="padding: 10px; border: 1px solid #e4e4e4; background: #f5f5f5;">Deadline</th>
+      <th style="padding: 10px; border: 1px solid #e4e4e4; background: #f5f5f5;">Charge</th>
+      <th style="padding: 10px; border: 1px solid #e4e4e4; background: #f5f5f5;">Status</th>
+      <th style="padding: 10px; border: 1px solid #e4e4e4; background: #f5f5f5;" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= task.user.name %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= task.title %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= task.content %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= task.deadline.strftime("%Y年%m月%d日 %H時%M分") %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= task.charge.name %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= task.status == 1? "対応中" : "未着手" %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= link_to 'Show', user_task_path(task.user, task) %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= link_to 'Edit', edit_user_task_path(task.user, task) %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= link_to 'Destroy', user_task_path(task.user, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_user_task_path(@user) %>
+</div>
+</div>

@@ -25,7 +25,9 @@ Rails.application.routes.draw do
 
   match "contacts/new", :via => :post
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit, :update] do
+    resources :tasks
+  end
 
   resources :relationships, only: [:show, :create, :destroy]
 
