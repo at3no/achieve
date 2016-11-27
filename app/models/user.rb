@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  mount_uploader :avatar, AvatarUploader
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
@@ -11,6 +10,9 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :relationships, source: :followed
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :tasks, dependent: :destroy
+  has_many :submit_requests, dependent: :destroy
+  has_many :received_requests, class_name: 'SubmitRequest', foreign_key: 'request_user_id'
+  mount_uploader :avatar, AvatarUploader
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first

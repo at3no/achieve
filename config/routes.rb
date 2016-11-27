@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'top#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #devise_for :users
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
 
   resources :blogs do
     resources :comments
-
     collection do
       post :confirm
     end
@@ -37,7 +37,13 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'top#index'
+  resources :submit_requests do
+    get 'inbox', on: :collection
+    member do
+      patch 'approve'
+      patch 'reject'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

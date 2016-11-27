@@ -1,0 +1,33 @@
+<div class="container">
+<div class="wrapper  col-md-8 col-md-offset-4 col-sm-10" style="text-align: left;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @submit_request.user.name %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @submit_request.task.title %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @submit_request.message %>
+</p>
+
+<p>
+  <strong>Request user:</strong>
+  <%= @submit_request.request_user_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @submit_request.status %>
+</p>
+
+<%= link_to 'Edit', edit_submit_request_path(@submit_request) %> |
+<%= link_to 'Back', submit_requests_path %>
+</div>
+</div>

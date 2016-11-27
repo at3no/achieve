@@ -25,10 +25,8 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { redirect_to user_tasks_url, notice: 'タスクを登録しました。' }
-        format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,7 +38,6 @@ class TasksController < ApplicationController
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,7 +56,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:user_id, :title, :content, :deadline, :charge_id, :done, :status, :user_id)
+      params.require(:task).permit(:user_id, :title, :content, :deadline, :charge_id, :done, :status)
     end
 
     def correct_user
