@@ -23,10 +23,10 @@
         <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= submit_request.task.title %></td>
         <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= submit_request.message %></td>
         <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= submit_request.request_user_id %></td>
-        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= submit_request.status %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= submit_request.status == 1? "依頼中" : submit_request.status == 2? "承認済み" : "依頼を却下" %></td>
         <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= link_to 'Show', submit_request %></td>
-        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= link_to '承認する', approve_submit_request_path(submit_request, submit_request: {status: 2}), method: :patch, data: { confirm: '承認しますか？' } %></td>
-        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= link_to '却下する', reject_submit_request_path(submit_request, submit_request: {status: 9}), method: :patch, data: { confirm: '却下しますか？' } %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= link_to '承認する', approve_submit_request_path(submit_request, submit_request: {status: 2}), method: :patch, data: { confirm: '承認しますか?' } %></td>
+        <td style="padding: 10px; border: 1px solid #e4e4e4;"><%= link_to '却下する', reject_submit_request_path(submit_request, submit_request: {status: 9}), method: :patch, data: { confirm: '却下しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>

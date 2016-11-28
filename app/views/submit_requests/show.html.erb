@@ -24,7 +24,7 @@
 
 <p>
   <strong>Status:</strong>
-  <%= @submit_request.status %>
+  <%= @submit_request.status == 1? "依頼中" : @submit_request.status == 2? "承認済み" : "依頼を却下" %>
 </p>
 
 <%= link_to 'Edit', edit_submit_request_path(@submit_request) %> |

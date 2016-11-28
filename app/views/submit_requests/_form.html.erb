@@ -27,7 +27,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br>
-    <%= f.select :status, SubmitRequest.statuses.keys, class: 'form-control' %>
+    <%= f.select :status, [["依頼中","1"], ["承認済み","2"], ["依頼を却下","9"]], class: 'form-control' %>
   </div>
 
   <div class="actions">
