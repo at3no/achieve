@@ -8,6 +8,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find(params[:id])
   end
 
   def new
@@ -16,6 +17,7 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    redirect_to(user_tasks_path(current_user)) unless current_user == @user
   end
 
   def create
@@ -35,7 +37,6 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to user_tasks_url, notice: 'タスクを編集しました。' }
-        format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
       end
@@ -46,7 +47,6 @@ class TasksController < ApplicationController
     @task.destroy
     respond_to do |format|
       format.html { redirect_to user_tasks_url, notice: 'タスクを削除しました' }
-      format.json { head :no_content }
     end
   end
 
