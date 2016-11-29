@@ -38,7 +38,7 @@ class SubmitRequestsController < ApplicationController
   end
 
   def destroy
-    @submit_request.destroy
+    @submit_request.destroy()
     respond_to do |format|
       format.html { redirect_to submit_requests_url, notice: 'Submit request was successfully destroyed.' }
     end
