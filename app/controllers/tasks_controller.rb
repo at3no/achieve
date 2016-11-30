@@ -16,8 +16,13 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
-    redirect_to(user_tasks_path(current_user)) unless current_user == @user
+    if current_user != @user
+      redirect_to(user_tasks_path(current_user))
+    elsif @user != @task.user
+      redirect_to(user_tasks_path(current_user))
+    else
+      @task = Task.find(params[:id])
+    end
   end
 
   def create
