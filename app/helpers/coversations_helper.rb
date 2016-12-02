@@ -1,0 +1,2 @@
+module CoversationsHelper
+end
