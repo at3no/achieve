@@ -1,7 +1,6 @@
 <% if @over_ten %>
   <%= link_to '以前のメッセージ', '?m=all' %>
 <% end %>
-
 <div class="ui segment">
   <% @messages.each do |message| %>
     <% if message.body %>
@@ -20,7 +19,6 @@
     <% end %>
   <% end %>
 </div>
-
 <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
   <div class="field">
     <%= f.text_area :body, class: "form-control" %>
