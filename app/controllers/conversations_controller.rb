@@ -1,4 +1,4 @@
-class CoversationsController < ApplicationController
+class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
@@ -12,6 +12,7 @@ class CoversationsController < ApplicationController
     else
       @conversation = Conversation.create!(conversation_params)
     end
+
     redirect_to conversation_messages_path(@conversation)
   end
 
