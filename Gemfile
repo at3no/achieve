@@ -51,15 +51,20 @@ group :development, :test do
   gem 'letter_opener'
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 gem 'therubyracer', platforms: :ruby
 gem 'rails_admin'
 gem 'cancan'
 
-group :development do
-  gem 'dotenv-rails'
-end
+# group :development do
+#   gem 'dotenv-rails'
+# end
 
 gem 'omniauth'
 gem 'omniauth-twitter'
@@ -71,3 +76,6 @@ gem 'rmagick'
 
 gem 'pusher'
 gem 'fog'
+
+gem 'dotenv-rails'
+gem 'unicorn'
